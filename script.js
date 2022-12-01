@@ -76,21 +76,13 @@ function validateUserInput() {
         possibleCharsArray = possibleCharsArray.concat(numericalNumsArray)
      }
      return true;
-
+    
+    
      
      
 }    
    
-          
-
-
-
-//after validation create variables for character selection
-//var specialChars = confirm("Would you like to include special characters in your password?")
-//var upperCase = confirm("Would you like to inlude uppercase letters in your password?")
-//var lowerCase = confirm("Would you like to include lowercase letters in your password")
-//var numericalNums = confirm("Would you like to include numbers in your password?")
-//validate that at least one option was selected
+        
 //if (!specialChars && !upperCase && !lowerCase && !numericalNums) {
     //alert("You need to select at least one type of character for your password.");
       //function generatePassword(){
@@ -98,14 +90,7 @@ function validateUserInput() {
      //}
     
 //}
-//after validation is complete start pushing the selected characters into possibleChars array
 
-        
-//create a random number
-//for (i = 0; i <userInput(numChars); i++) {
-   // var randomNum = possibleChars[Math.floor(Math.random() * possibleChars.length)];
-
-//}
 //loop through possibleChars and select a random character from the possibleChars array based on how many characters they entered into the prompt
 
 //push() the randomly generated character to an empty array called passwordArray
