@@ -1,3 +1,9 @@
+//on game start prompt for users number of characters and hold in a variable
+//event listener added so prompt pops up after page loads
+window.addEventListener("load", function() {
+    var numChars = prompt("How many characters would you like in your password?")
+    });
+
 //create variables to hold the options for special, lowercase and numeric characters
 var specialCharsArray = ["!", "#", "$", "%", "&", "(", ")", "*", "+"]
 var upperCaseArray = ["A", "B'", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -6,7 +12,7 @@ var numericalNumsArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 //create an empty array that will hold users selected characters
 var possibleCharsArray = []
-var numChars = 8;
+var numChars = 10;
 
 
 
@@ -22,28 +28,34 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
     //userInput variable created if prompts are confirmed, then password will be generated
     var userInput = validateUserInput();
-    if(userInput){
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-    }
+   if (userInput) {
+       var newPassword = generatePassword();
+       passwordText.value = newPassword;
+  }  else {
+       passwordText.value = "";
+  } 
+  if (!specialCharsArray && !upperCaseArray && !lowerCaseArray && !numericalNumsArray) {
+    alert("You need to select at least one type of character for your password.");
+    return generatePassword();
+  }
 }
 //write generatePassword function
 function generatePassword() {
     var password = "";
+    //loop through possibleChars and select a random character from the possibleChars array based on how many characters they entered into the prompt
     for (var i = 0; i < numChars; i++) {
         var randomChar = [Math.floor(Math.random() * possibleCharsArray.length)];
         password = password + possibleCharsArray[randomChar];
     }
     return password;
     
-    console.log("you clicked the button")
-    return "Generated password will go here!"
+
 }
  
 //write function that validates the users input
-function validateUserInput(numChars) {
+function validateUserInput() {
     numChars = parseInt (prompt("How many characters would you like in your password?"));
     //check users input and confirm they put in a number btw 8 and 128 and that it is numeric
     if(isNaN(numChars) || numChars < 8 || numChars > 128) {
@@ -64,34 +76,14 @@ function validateUserInput(numChars) {
         possibleCharsArray = possibleCharsArray.concat(numericalNumsArray)
      }
      return true;
-}
-    //validate that at least one option was selected
-     //if (!specialChars && !upperCase && !lowerCase && !numericalNums) {
-     //alert("You need to select at least one type of character for your password.");
-     // function generatePassword(){
-     // return;
-    // }
-   //after validation is complete start pushing the selected characters into possibleChars array
-    //if (specialChars) {
-       // possibleChars = possibleChars.concat(specialCharsArray)
-       // }
-    //if (upperCase) {
-       // possibleChars = possibleChars.concat(upperCaseArray)
-       // }
-   // if (lowerCase) {
-       // possibleChars = possibleChars.concat(lowerCaseArray)
-      //  }   
-   // if (numericalNums) {
-       // possibleChars = possibleChars.concat(numericalNumsArray)
-       // }
-    //return true;
 
+     
+     
+}    
+   
           
 
-//on game start prompt for users number of characters and hold in a variable
-window.addEventListener("load", function() {
-var numChars = prompt("How many characters would you like in your password?")
-});
+
 
 //after validation create variables for character selection
 //var specialChars = confirm("Would you like to include special characters in your password?")
