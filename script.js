@@ -36,8 +36,8 @@ function generatePassword() {
         var randomChar = [Math.floor(Math.random() * possibleCharsArray.length)];
         password = password + possibleCharsArray[randomChar];
     }
+    return password;
     
-     
     console.log("you clicked the button")
     return "Generated password will go here!"
 }
@@ -89,8 +89,9 @@ function validateUserInput(numChars) {
           
 
 //on game start prompt for users number of characters and hold in a variable
+window.addEventListener("load", function() {
 var numChars = prompt("How many characters would you like in your password?")
-  
+});
 
 //after validation create variables for character selection
 //var specialChars = confirm("Would you like to include special characters in your password?")
